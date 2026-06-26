@@ -1116,7 +1116,7 @@ app.get('/bias', async (req, res) => {
     flags.push({field: 'DOMAIN: Employment', risk: 'DISPARATE IMPACT RISK', action: 'Validate model predictions by protected group annually', severity: 'CRITICAL', color: '#DC2626'});
   }
   if (/credit|loan|banking|financial|mortgage/.test(domainSignals)) {
-    flags.push({field: 'DOMAIN: Finance', risk: 'FAIR LENDING VIOLATION (ECOA)', action: 'Ensure lending decisions don't disparately impact protected groups', severity: 'CRITICAL', color: '#DC2626'});
+    flags.push({field: 'DOMAIN: Finance', risk: 'FAIR LENDING VIOLATION (ECOA)', action: 'Ensure lending decisions don&apos;t disparately impact protected groups', severity: 'CRITICAL', color: '#DC2626'});
   }
   if (/housing|landlord|rental|apartment|eviction/.test(domainSignals)) {
     flags.push({field: 'DOMAIN: Housing', risk: 'FAIR HOUSING ACT VIOLATION', action: 'Audit for racial, familial, disability discrimination', severity: 'CRITICAL', color: '#DC2626'});
@@ -1409,12 +1409,12 @@ app.get('/blindspots', async (req, res) => {
   
   // Domain-specific blind spots
   if (/education|student|school|teacher|learning/.test(domainSignals)) {
-    blindspots.push({category: 'Education', question: 'What peer effects or cohort dynamics influenced this student?', why: 'Individual records don't capture classroom or school effects', status: 'CRITICAL'});
+    blindspots.push({category: 'Education', question: 'What peer effects or cohort dynamics influenced this student?', why: 'Individual records don&apos;t capture classroom or school effects', status: 'CRITICAL'});
     blindspots.push({category: 'Education', question: 'What prior knowledge gaps preceded this outcome?', why: 'Entry-level assessment missing from schema', status: 'HIGH'});
     blindspots.push({category: 'Education', question: 'What external support systems exist (family, community)?', why: 'Out-of-school factors not captured', status: 'HIGH'});
   }
   if (/health|medical|patient|clinical|hospital/.test(domainSignals)) {
-    blindspots.push({category: 'Health', question: 'What social determinants of health affect outcomes?', why: 'Clinical data doesn't capture housing, food security, income', status: 'CRITICAL'});
+    blindspots.push({category: 'Health', question: 'What social determinants of health affect outcomes?', why: 'Clinical data doesn&apos;t capture housing, food security, income', status: 'CRITICAL'});
     blindspots.push({category: 'Health', question: 'What comorbidities or drug interactions exist?', why: 'Single-condition view ignores polypharmacy', status: 'HIGH'});
   }
   if (/criminal|justice|court|arrest|conviction/.test(domainSignals)) {
@@ -1423,17 +1423,17 @@ app.get('/blindspots', async (req, res) => {
   }
   if (/employment|hiring|job|candidate|resume/.test(domainSignals)) {
     blindspots.push({category: 'Employment', question: 'What unpaid labor or caregiving responsibilities exist?', why: 'Resume only captures formal employment', status: 'CRITICAL'});
-    blindspots.push({category: 'Employment', question: 'What mentorship or network access did this person have?', why: 'Educational credentials don't reflect opportunity', status: 'HIGH'});
+    blindspots.push({category: 'Employment', question: 'What mentorship or network access did this person have?', why: 'Educational credentials don&apos;t reflect opportunity', status: 'HIGH'});
   }
   if (/housing|rental|eviction|homelessness/.test(domainSignals)) {
-    blindspots.push({category: 'Housing', question: 'What displacement preceded this housing instability?', why: 'Current status doesn't explain origin', status: 'CRITICAL'});
+    blindspots.push({category: 'Housing', question: 'What displacement preceded this housing instability?', why: 'Current status doesn&apos;t explain origin', status: 'CRITICAL'});
   }
   if (/financial|loan|credit|banking|debt/.test(domainSignals)) {
-    blindspots.push({category: 'Finance', question: 'What unexpected life events caused credit damage?', why: 'Credit score aggregates but doesn't explain', status: 'HIGH'});
-    blindspots.push({category: 'Finance', question: 'What predatory lending or fraud occurred?', why: 'Payment history doesn't capture coercion', status: 'HIGH'});
+    blindspots.push({category: 'Finance', question: 'What unexpected life events caused credit damage?', why: 'Credit score aggregates but doesn&apos;t explain', status: 'HIGH'});
+    blindspots.push({category: 'Finance', question: 'What predatory lending or fraud occurred?', why: 'Payment history doesn&apos;t capture coercion', status: 'HIGH'});
   }
   if (/child|minor|foster|family|welfare/.test(domainSignals)) {
-    blindspots.push({category: 'Child Welfare', question: 'What cumulative trauma history precedes intervention?', why: 'Current report doesn't capture prior maltreatment', status: 'CRITICAL'});
+    blindspots.push({category: 'Child Welfare', question: 'What cumulative trauma history precedes intervention?', why: 'Current report doesn&apos;t capture prior maltreatment', status: 'CRITICAL'});
     blindspots.push({category: 'Child Welfare', question: 'What protective factors exist in the family system?', why: 'Risk-focused schema misses strengths', status: 'HIGH'});
   }
   
