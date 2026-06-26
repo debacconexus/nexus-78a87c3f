@@ -782,7 +782,7 @@ app.get('/report', async (req, res) => {
     
     '</div>' +
     
-    '<div class="footer">AIRS — AI Insight | See what your system can't | DeBacco Nexus LLC | USPTO Patent Pending 19/571,156 | info@debacconexus.com</div>' +
+    '<div class="footer">AIRS — AI Insight | See what your system can&apos;t | DeBacco Nexus LLC | USPTO Patent Pending 19/571,156 | info@debacconexus.com</div>' +
     
     '</body></html>');
 });
